@@ -15,11 +15,8 @@ def main():
             else:
                 floor_num = int(line[1:])
                 count = count - floor_num
-        if count in freq_list:
-            print count
-            break
-        else:
-            freq_list.append(count)
+
+    print count
 
 
 if __name__ == "__main__":
