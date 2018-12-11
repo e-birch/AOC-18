@@ -21,7 +21,6 @@ def main():
         if line == "":
             break
         else:
-            claimID = line.split(" @ ")[0].strip("#")
             measurements = line.split("@ ")[1].split(": ")
             coords = measurements[0].split(",")
             dimensions = measurements[1].strip("\n").split("x")

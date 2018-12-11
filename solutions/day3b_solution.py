@@ -1,9 +1,9 @@
 def create_fabric():
 
     full_matrix = []
-    for j in range(1, 11):
+    for j in range(1, 1001):
         temp_list = []
-        for i in range(1, 11):
+        for i in range(1, 1001):
             temp_list.append(0)
         full_matrix.append(temp_list)
 
@@ -16,7 +16,7 @@ def main():
     claim_sizes = {}
     actual_claim_sizes = {}
 
-    filename = open("../inputs/day3_input_test.txt")
+    filename = open("../inputs/day3_input.txt")
 
     while True:
         line = filename.readline()
@@ -44,9 +44,29 @@ def main():
                     else:
                         fabric_area[j][i] = "X"
 
-    for k in fabric_area:
-        print k
+    for a in fabric_area:
+        for b in a:
+            if b in actual_claim_sizes:
+                actual_claim_sizes[b] = actual_claim_sizes[b] + 1
+            else:
+                actual_claim_sizes[b] = 1
 
+    # for a in fabric_area:
+    #     print a
+
+    del actual_claim_sizes[0]
+    del actual_claim_sizes["X"]
+
+    # print len(claim_sizes)
+    # print len(actual_claim_sizes)
+
+    # print claim_sizes
+    # print actual_claim_sizes
+
+    for i in claim_sizes:
+        if i in actual_claim_sizes and claim_sizes[i] == actual_claim_sizes[i]:
+            print i
+            break
     # count = 0
     # for a in fabric_area:
     #     for b in a:
